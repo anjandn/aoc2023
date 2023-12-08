@@ -1,7 +1,5 @@
 
 (import (chicken io))
-(import (chicken string))
-
 
 (define inputfile (open-input-file "input.txt"))
 (define data (read-lines inputfile))
