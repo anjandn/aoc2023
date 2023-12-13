@@ -7,16 +7,10 @@
 (define inputfile (open-input-file "input.txt"))
 (define lines (read-lines inputfile))
 
-(define line (list-ref lines 0))
-(define sline (string-split line " "))
-(define pattern (string->list (car sline)))
-(define seq (map string->number (string-split (cadr sline) ",")))
-
 (define (is-bind seq) (and (not (null? seq)) (list? (car seq))))
 (define (start-bind seq) (cons `(bind ,(- (car seq) 1)) (cdr seq)))
 (define (dec-bind seq) (cons `(bind ,(- (cadar seq) 1)) (cdr seq)))
 (define (is-zero-bind seq) (eq? (cadar seq) 0))
-
 
 (define (num-soln pat seq)
   (if (null? pat) 
